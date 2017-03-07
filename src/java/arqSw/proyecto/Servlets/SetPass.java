@@ -47,7 +47,7 @@ public class SetPass extends HttpServlet {
         }else{
             out.print("false");
         }
-            
+           //He cambiado esta clase 
        
 
 
