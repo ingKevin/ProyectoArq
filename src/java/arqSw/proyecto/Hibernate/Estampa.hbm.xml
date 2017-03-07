@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/03/2017 01:29:58 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="arqSw.proyecto.Hibernate.Estampa" table="estampa" catalog="mydb">
+        <id name="idEstampa" type="int">
+            <column name="idEstampa" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="artista" class="arqSw.proyecto.Hibernate.Artista" fetch="select">
+            <column name="Artista_idArtista" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="45" />
+        </property>
+        <property name="imagenes" type="string">
+            <column name="imagenes" length="45" />
+        </property>
+        <property name="tema" type="string">
+            <column name="tema" length="45" />
+        </property>
+        <property name="rating" type="string">
+            <column name="rating" length="45" />
+        </property>
+        <property name="popularidad" type="string">
+            <column name="popularidad" length="45" />
+        </property>
+        <property name="autor" type="string">
+            <column name="autor" length="45" />
+        </property>
+        <set name="ventas" table="venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Estampa_idEstampa" not-null="true" />
+            </key>
+            <one-to-many class="arqSw.proyecto.Hibernate.Venta" />
+        </set>
+    </class>
+</hibernate-mapping>

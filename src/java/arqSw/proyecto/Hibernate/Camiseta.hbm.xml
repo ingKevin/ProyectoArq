@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/03/2017 01:29:58 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="arqSw.proyecto.Hibernate.Camiseta" table="camiseta" catalog="mydb">
+        <id name="idEstampa" type="int">
+            <column name="idEstampa" />
+            <generator class="assigned" />
+        </id>
+        <property name="talla" type="string">
+            <column name="talla" length="45" />
+        </property>
+        <property name="color" type="string">
+            <column name="color" length="45" />
+        </property>
+        <property name="material" type="string">
+            <column name="material" length="45" />
+        </property>
+        <set name="ventas" table="venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Camiseta_idEstampa" not-null="true" />
+            </key>
+            <one-to-many class="arqSw.proyecto.Hibernate.Venta" />
+        </set>
+    </class>
+</hibernate-mapping>

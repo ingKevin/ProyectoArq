@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/03/2017 01:29:58 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="arqSw.proyecto.Hibernate.Administrador" table="administrador" catalog="mydb">
+        <id name="idAdministrador" type="int">
+            <column name="idAdministrador" />
+            <generator class="assigned" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/03/2017 01:29:58 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="arqSw.proyecto.Hibernate.Artista" table="artista" catalog="mydb">
+        <id name="idArtista" type="int">
+            <column name="idArtista" />
+            <generator class="assigned" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" />
+        </property>
+        <set name="ventas" table="venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Artista_idArtista" not-null="true" />
+            </key>
+            <one-to-many class="arqSw.proyecto.Hibernate.Venta" />
+        </set>
+        <set name="estampas" table="estampa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Artista_idArtista" not-null="true" />
+            </key>
+            <one-to-many class="arqSw.proyecto.Hibernate.Estampa" />
+        </set>
+    </class>
+</hibernate-mapping>

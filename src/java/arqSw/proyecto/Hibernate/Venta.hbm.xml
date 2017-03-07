@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3/03/2017 01:29:58 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="arqSw.proyecto.Hibernate.Venta" table="venta" catalog="mydb">
+        <id name="idVenta" type="int">
+            <column name="idVenta" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cliente" class="arqSw.proyecto.Hibernate.Cliente" fetch="select">
+            <column name="Cliente_idCliente" not-null="true" />
+        </many-to-one>
+        <many-to-one name="camiseta" class="arqSw.proyecto.Hibernate.Camiseta" fetch="select">
+            <column name="Camiseta_idEstampa" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estampa" class="arqSw.proyecto.Hibernate.Estampa" fetch="select">
+            <column name="Estampa_idEstampa" not-null="true" />
+        </many-to-one>
+        <many-to-one name="artista" class="arqSw.proyecto.Hibernate.Artista" fetch="select">
+            <column name="Artista_idArtista" not-null="true" />
+        </many-to-one>
+        <property name="fecha" type="string">
+            <column name="fecha" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>
